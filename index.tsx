@@ -2,7 +2,7 @@ import { IAugmentedJQuery, IComponentOptions } from 'angular'
 import fromPairs = require('lodash.frompairs')
 import NgComponent from 'ngcomponent'
 import * as React from 'react'
-import { render, unmountComponentAtNode } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 /**
  * Wraps a React component in Angular. Returns a new Angular component.
  *
@@ -15,17 +15,18 @@ import { render, unmountComponentAtNode } from 'react-dom'
  *   ```
  */
 export function react2angular<Props>(
-  Class: React.ComponentType<Props>,
+  ReactComponent: React.ComponentType<Props>,
   bindingNames: (keyof Props)[] | null = null,
   injectNames: string[] = []
 ): IComponentOptions {
   const names = bindingNames
-    || (Class.propTypes && Object.keys(Class.propTypes) as (keyof Props)[])
+    || (ReactComponent.propTypes && Object.keys(ReactComponent.propTypes) as (keyof Props)[])
     || []
 
   return {
     bindings: fromPairs(names.map(_ => [_, '<'])),
     controller: ['$element', ...injectNames, class extends NgComponent<Props> {
+      root: any
       static get $$ngIsClass() {
         return true
       }
@@ -37,6 +38,7 @@ export function react2angular<Props>(
         injectNames.forEach((name, i) => {
           this.injectedProps[name] = injectedProps[i]
         })
+        this.root = createRoot($element[0])
       }
       $onInit() {
         names.forEach((name) => {
@@ -45,16 +47,15 @@ export function react2angular<Props>(
       }
       render() {
         if (!this.isDestroyed) {
-          render(
-            <Class {...this.props} {...this.injectedProps as any} />,
-            this.$element[0]
+          this.root.render(
+            <ReactComponent {...this.props} {...this.injectedProps as any} />
           )
         }
       }
       componentWillUnmount() {
         this.isDestroyed = true
-        if(this.$element[0]){
-          unmountComponentAtNode(this.$element[0])
+        if (this.$element[0] && this.root){
+          this.root.unmount()
         }
       }
     }]
