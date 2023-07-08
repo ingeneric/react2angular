@@ -1,5 +1,5 @@
 {
-  "name": "react2angular",
+  "name": "@ingeneric/react2angular",
   "version": "7.0.1",
   "description": "The easiest way to embed React components in Angular 1 apps!",
   "main": "index.js",
