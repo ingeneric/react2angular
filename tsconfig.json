@@ -21,8 +21,8 @@
     "target": "es2015"
   },
   "files": [
-    "index.tsx",
-    "test.tsx"
+    "src/react2angular.tsx",
+    "src/react2angular.test.tsx"
   ],
   "exclude": [
     "node_modules"
