@@ -1,6 +1,6 @@
 <img alt="React to Angular: The easiest way to use React components in Angular 1" src="https://raw.githubusercontent.com/coatue-oss/react2angular/master/logo.png" width="400px" />
 
-# react2angular [![Build Status][build]](https://github.com/ingeneric/react2angular/actions) [![npm]](https://www.npmjs.com/package/react2angular) [![license]](https://opensource.org/license/apache-2-0/)
+# react2angular [![Build Status][build]](https://github.com/ingeneric/react2angular/actions) [![npm]](https://www.npmjs.com/package/@ingeneric/react2angular) [![license]](https://opensource.org/license/apache-2-0/)
 
 [build]: https://github.com/ingeneric/react2angular/actions/workflows/npm-publish.yml/badge.svg
 [npm]: https://img.shields.io/npm/v/@ingeneric/react2angular.svg
