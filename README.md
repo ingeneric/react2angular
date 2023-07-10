@@ -1,18 +1,22 @@
 <img alt="React to Angular: The easiest way to use React components in Angular 1" src="https://raw.githubusercontent.com/coatue-oss/react2angular/master/logo.png" width="400px" />
 
-# react2angular [![Build Status](https://img.shields.io/circleci/project/coatue-oss/react2angular.svg?branch=master&style=flat-square)](https://circleci.com/gh/coatue-oss/react2angular) [![NPM](https://img.shields.io/npm/v/react2angular.svg?style=flat-square)](https://www.npmjs.com/package/react2angular) [![Apache2](https://img.shields.io/npm/l/react2angular.svg?style=flat-square)](https://opensource.org/licenses/Apache2)
+# react2angular [![Build Status][build]](https://github.com/ingeneric/react2angular/actions) [![npm]](https://www.npmjs.com/package/react2angular) [![license]](https://opensource.org/license/apache-2-0/)
+
+[build]: https://github.com/ingeneric/react2angular/actions/workflows/npm-publish.yml/badge.svg
+[npm]: https://img.shields.io/npm/v/@ingeneric/react2angular.svg
+[license]: https://img.shields.io/npm/l/@ingeneric/react2angular.svg
+
+An actualized version of the [coatue-oss/react2angular](https://github.com/coatue-oss/react2angular) package.
 
 > The easiest way to embed React components in Angular 1 apps! (opposite of [angular2react](https://github.com/coatue-oss/angular2react))
 
 ## Installation
 
 ```sh
-# Using Yarn:
-yarn add react2angular react react-dom prop-types
-
-# Or, using NPM:
-npm install react2angular react react-dom prop-types --save
+npm install @ingeneric/react2angular --save
 ```
+
+**Warning:** This package is native [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) and no longer provides a CommonJS export. If your project uses CommonJS, you will have to [convert to ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) or use the [dynamic `import()`](https://v8.dev/features/dynamic-import) function. Please don't open issues for questions regarding CommonJS / ESM.
 
 ## Usage
 
@@ -102,4 +106,4 @@ npm test
 
 ## License
 
-Apache2
+Apache 2.0
